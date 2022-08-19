@@ -1,7 +1,11 @@
 import { json, serve } from "https://deno.land/x/sift@0.5.0/mod.ts";
 import { h, ssr } from "https://crux.land/nanossr@0.0.5";
 
-const html = async (render, opts) => {
+interface Opts {
+  title: string,
+}
+
+const html = async (render, opts: Opts) => {
   let resp = ssr(render);
 
   if (opts && 'title' in opts) {
@@ -35,4 +39,3 @@ export {
   json,
   html,
 }
-
